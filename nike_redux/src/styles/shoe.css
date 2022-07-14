@@ -1,0 +1,51 @@
+.shoe-wrapper
+{
+    
+}
+
+.shoe-img-container
+{
+    width: 100%;
+    height: auto;
+    position: relative;
+    
+}
+
+.shoe-img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shoe-name
+{
+    margin-top: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.shoe-cat
+{
+    margin-top: 0.3rem;
+    font-size: 1.05rem;
+}
+
+.shoe-color_num
+{
+    margin-top: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.shoe-price
+{
+    margin-top: 0.9rem;
+    font-size: 1.05rem;
+}
+
+.shoe-discount
+{
+    color: #6aa139;
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+}

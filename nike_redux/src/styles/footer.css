@@ -1,0 +1,101 @@
+.footer-container
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 5rem;
+    position: relative;
+    background-color: #111111;
+    color: #ffffff;
+    font-size: 0.8rem;
+}
+
+.footer-wrapper
+{
+    width: 100%;
+    max-width: 1300px;
+    padding: 3rem 0;
+    position: relative;
+}
+
+.footer-wrapper ul{
+    list-style: none;
+}
+
+.footer-links
+{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.fl-left
+{
+    display: flex;
+    align-items: baseline;
+}
+
+.fl-left ul
+{
+    margin-right: 8rem;
+}
+
+.fl-left ul li{
+    font-size: 0.8rem;
+    margin-bottom: 1.2rem;
+    color: #7e7e7e;
+    transition: color 0.2s ease-in-out;
+}
+
+.fl-left ul li:hover {
+    color: #ffffff;
+}
+
+.fl_1 li
+{
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+.fl_2 li:nth-child(1)
+{
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+.fls{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-end
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fer-misc
+{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.fer-misc li
+{
+    font-size: 0.65rem;
+    color: #7e7e7e;
+}
+
+.fe-left p{
+    display: flex;
+    align-items: baseline;
+    font-size: 0.65rem;
+}
+
+.fe-left p span
+{
+    color: #7e7e7e;
+}

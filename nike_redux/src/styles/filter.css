@@ -1,0 +1,55 @@
+.filter-container
+{
+    width: 240px;
+    height: calc(100vh - 275px);
+    overflow-y: scroll;
+    padding-right: 1rem;
+    flex-shrink: 0;
+    position: sticky;
+    top: 80px;
+}
+.filter-container::-webkit-scrollbar {
+    width: 7px;
+}
+
+.filter-container::-webkit-scrollbar-thumb
+{
+    border-radius: 25px;
+    background-color: #808080;
+}
+
+.filter-wrapper ul
+{
+    list-style: none;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+ul:not(:nth-child(1))
+{
+    padding-top: 1.3rem;
+}
+
+li
+{
+    font-size: 1.05rem;
+    margin-bottom: 0.6rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+li:hover
+{
+    color: #9d9d9d;
+}
+
+.active-list
+{
+    text-decoration: underline;
+}
+
+.cat-title
+{
+    margin-top: 0.8rem;
+    font-size: 1.15rem;
+}

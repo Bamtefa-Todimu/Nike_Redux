@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500;600;700&display=swap');
+
+.auth-container
+{
+    width: 100%;
+    padding: 0 3rem;
+    margin-top: -80px;
+    z-index: 10;
+    position: relative;
+    background-color: #ffffff;
+    
+}
+
+.auth-wrapper
+{
+    width: 100%;
+    padding: 3rem 0;
+    position: relative;
+}
+
+.login-container
+{
+    width: 100%;
+    position: relative;
+}
+
+.login-wrapper
+{
+    width: 100%;
+    max-width: 410px;
+    padding: 2.6rem;
+    margin: 0 auto;
+   
+}
+
+.nike-logo{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 1.8rem;
+    transform: scale(0.8);
+}
+
+.login-head-text
+{
+    font-size: 1.45rem;
+    /* font-stretch: expanded; */
+    font-weight: 500;
+    line-height: 1.1;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.input-container{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 0.7rem;
+    /* margin-bottom:1rem; */
+}
+
+.input-container:nth-child(2) {
+    margin-bottom: 3rem;}
+
+.login-input,.gender-btn
+{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    outline: none;
+    background: transparent;
+    font-size: 0.95rem;
+    color: #999999;
+}
+
+.error-message-email,.error-message-password
+{
+    /* margin-top: 1rem; */
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    color: #fe0000;
+}
+
+.forgot-pass
+{
+    width: 100%;
+    display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-size: 0.8rem;
+        color: #999999;
+        justify-content: space-between;
+        margin-bottom: 1.2rem;
+}
+
+.keep-me-signed
+{
+    display: flex;
+        align-items: center;
+    gap: 0.8rem;
+}
+
+.tos,.sign-up_link{
+    font-size: 0.82rem;
+        color: #999999;
+        text-align: center;
+        margin-bottom: 2rem;
+        
+}
+
+.tos span
+{
+    text-decoration: underline;
+}
+
+.sign-in_btn{
+    width: 100%;
+    padding: 0.65rem 0;
+    border-radius: 4px;
+    background-color: #111111;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    display: grid;
+    place-content: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.invalid-input_login
+{
+    border: 1px solid  #fe0000 !important;
+}
+
+.sign-up_link span{
+    color: #111111;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-head-yarns
+{
+    width: 100%;
+    text-align: center;
+    color: #999999;
+    font-size: 0.96rem;
+    margin-bottom: 1.5rem;
+}
+
+#birthday_message
+{
+    width: 100%;
+    font-size: 0.75rem;
+    text-align: center;
+    color: #999999;
+    margin-bottom: 1rem;
+}
+.gender-input_container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.gender-btn
+{
+    width: 47%;
+    display: grid;
+    place-content: center;
+}
+
+.keep-me-signed
+{
+    margin-bottom: 1rem;
+}
+
+.keep-me-signed label
+{
+    font-size: 0.8rem;
+    color: #999999;
+}

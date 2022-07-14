@@ -1,0 +1,93 @@
+.main-container
+{
+    padding: 0 3rem;
+    padding-bottom: 5rem;
+    background-color: #ffffff;
+}
+
+.main-wrapper
+{
+    padding-top:0.8rem;
+    
+}
+
+.mw-breadcrumb
+{
+    margin: 0;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    font-size: 0.95rem;
+    
+}
+
+.mw-breadcrumb span:hover
+{
+    color: #acacac;
+}
+
+.mw-topic-container
+{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.8rem;
+    position: sticky;
+        top: 0;
+        background-color: #ffffff;
+        z-index: 10;
+}
+
+.mw-topic-sticky
+{
+    padding: 1rem 0;
+}
+
+.mw-topic
+{
+    font-size: 1.6rem;
+    transition: font-size 0.2s ease-in-out;
+}
+
+.mw-toggle-actions
+{
+    font-size: 1.06rem;
+    display: flex;
+    align-items: center;
+    
+}
+
+.mw-toggle-actions div
+{
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.sb-btn
+{
+    margin-left: 1.8rem;
+}
+
+.main-wrapper-body
+{
+    display: flex;
+    gap: 3rem;
+}
+
+.shoes-container
+{
+    width: 100%;
+    flex-shrink: 1;
+}
+
+.shoes-wrapper
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    grid-row-gap: 5rem;
+}

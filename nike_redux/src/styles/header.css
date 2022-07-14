@@ -1,0 +1,28 @@
+.header-wrapper
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.3rem 3rem;
+    
+}
+
+.hw-left svg:nth-child(1)
+{
+    margin-right: 2rem;
+}
+
+.hw-right span
+{
+    padding: 0 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    height: fit-content;
+    position: relative;
+    cursor: pointer;
+}
+
+.hw-right span:not(:nth-child(3))
+{
+    border-right: 1.5px solid #111111;
+}
