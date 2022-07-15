@@ -1,4 +1,5 @@
-const app = require('express')()
+const express = require('express')
+const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
@@ -6,9 +7,13 @@ const dbConnect = require('./dbConnection')
 
 const shoeModel = require('./models/shoe')
 
+const userRoutes = require('./routes/user')
+
 app.use(cors())
 app.use(bodyParser.json())
+app.use(express.urlencoded({extended:false}));
 
+app.use('/api/v1',userRoutes)
 
 app.get('/',async (req,res) => {
     

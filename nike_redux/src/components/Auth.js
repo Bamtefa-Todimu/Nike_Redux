@@ -1,4 +1,8 @@
 import {useState,useEffect} from 'react'
+import { useSelector,useDispatch } from 'react-redux'
+import { useLocation, useNavigate } from 'react-router-dom'
+
+import { handleRegister , handleLogin } from '../store/auth'
 
 import '../styles/auth.css'
 
@@ -23,6 +27,30 @@ const Auth = () => {
 }
 
 const Login = ({changeSelection}) => {
+
+    const dispatch = useDispatch()
+    const location = useLocation()
+    const navigate = useNavigate()
+    const continueUrl = new URLSearchParams(location.search).get('continueUrl')
+
+    const {errorMessageLog} = useSelector(state => state.auth)
+    const [userRegisterInfo,setUserRegisterInfo] = useState({})
+
+
+    const handleFormSubmit = () => {
+        // console.log(userRegisterInfo)
+        dispatch(handleLogin(userRegisterInfo))
+
+        
+    }
+
+    useEffect(() => {
+        if(!errorMessageLog)
+        {
+            console.log(errorMessageLog);
+            // window.location.href = continueUrl
+        }
+    },[errorMessageLog])
     return(
         <div className="login-container">
             <div className="login-wrapper">
@@ -30,15 +58,15 @@ const Login = ({changeSelection}) => {
                 <div className="login-head-text">YOUR ACCOUNT FOR  <br /> EVERYTHING NIKE</div>
 
                 <div className="input-container email-input_container">
-                    <input  type="email" name="" id="email" className="login-input " placeholder='Email address'/>
+                    <input  type="email" name="" id="email" className="login-input " placeholder='Email address' onChange={(e) => setUserRegisterInfo({...userRegisterInfo,email:e.target.value})} value = {userRegisterInfo.email}/>
                 </div>
-                    <p className="error-message-email">Please enter a valid email address.</p>
+                    {errorMessageLog ?  <p className="error-message-email">{errorMessageLog}</p>:null}
 
                 <div className="input-container password-input_container">
-                    <input type="password" name="" id="password" className='login-input'  placeholder='Password'/>
+                    <input type="password" name="" id="password" className='login-input'  placeholder='Password' onChange={(e) => setUserRegisterInfo({...userRegisterInfo,password:e.target.value})} value = {userRegisterInfo.password}/>
                     
                 </div>
-                <p className="error-message-password">Please enter a valid password.</p>
+                {errorMessageLog ? <p className="error-message-password">{errorMessageLog}</p>:null}
 
                 <div className="forgot-pass">
                     <div className="keep-me-signed">
@@ -55,7 +83,7 @@ const Login = ({changeSelection}) => {
                     By logging in, you agree to Nike's <span> Privacy Policy. </span> and <span> Terms of Use. </span>
                 </div>
 
-                <div className="sign-in_btn">
+                <div className="sign-in_btn" onClick={() => handleFormSubmit()}>
                     SIGN IN
                 </div>
 
@@ -68,6 +96,22 @@ const Login = ({changeSelection}) => {
 }
 
 const Register = ({changeSelection}) => {
+
+    const dispatch = useDispatch()
+    const {errorMessageReg} = useSelector(state => state.auth)
+
+
+    const [userRegisterInfo,setUserRegisterInfo] = useState({country:"Nigeria"})
+    const [activeGender,setActiveGender] = useState("")
+
+
+    const handleFormSubmit = () => {
+        console.log("submitting")
+        console.log(userRegisterInfo)
+        dispatch(handleRegister(userRegisterInfo))
+    }
+
+
     return (
         <div className="login-container">
             <div className="login-wrapper">
@@ -76,24 +120,25 @@ const Register = ({changeSelection}) => {
                 <div className="login-head-yarns">Create your Nike Member profile and get first access to the very best of Nike products, inspiration and community.</div>
 
                 <div className="input-container email-input_container">
-                    <input  type="email" name="" id="email" className="login-input " placeholder='Email address'/>
+                    <input  type="email" name="" id="email" className="login-input " placeholder='Email address' onChange={(e) => setUserRegisterInfo({...userRegisterInfo,email:e.target.value})} value = {userRegisterInfo.email}/>
                 </div>
-                    <p className="error-message-email">Please enter a valid email address.</p>
+                {errorMessageReg ?  <p className="error-message-email">{errorMessageReg} <span style={{color:"#111111",textDecoration:"underline"}} onClick={() => changeSelection("login")}>Sign In</span></p>:null}
+
 
                 <div className="input-container password-input_container">
-                    <input type="password" name="" id="password" className='login-input'  placeholder='Password'/>
+                    <input type="password" name="" id="password" className='login-input'  placeholder='Password' onChange={(e) => setUserRegisterInfo({...userRegisterInfo,password:e.target.value})} value = {userRegisterInfo.password}/>
                     
                 </div>
                 <div className="input-container fname-input_container">
-                    <input type="text" name="" id="fname" className='login-input'  placeholder='First Name'/>
+                    <input type="text" name="" id="fname" className='login-input'  placeholder='First Name' onChange={(e) => setUserRegisterInfo({...userRegisterInfo,firstname:e.target.value})} value = {userRegisterInfo.fname}/>
                     
                 </div>
                 <div className="input-container lname-input_container">
-                    <input type="password" name="" id="lname" className='login-input'  placeholder='Last Name'/>
+                    <input type="text" name="" id="lname" className='login-input'  placeholder='Last Name' onChange={(e) => setUserRegisterInfo({...userRegisterInfo,lastname:e.target.value})} value = {userRegisterInfo.lname}/>
                     
                 </div>
                 <div className="input-container dob-input_container">
-                    <input type="text" name="" id="dob" className='login-input'  placeholder='Date Of Birth' onFocus={(e) => e.target.type = "date"}/>
+                    <input type="text" name="" id="dob" className='login-input'  placeholder='Date Of Birth' onFocus={(e) => e.target.type = "date"} onChange={(e) => setUserRegisterInfo({...userRegisterInfo,dob:e.target.value})} value = {userRegisterInfo.dob}/>
                     
                 </div>
 
@@ -104,8 +149,8 @@ const Register = ({changeSelection}) => {
                     
                 </div>
                 <div className="input-container gender-input_container">
-                    <div className="gender-btn male">Male</div>
-                    <div className="gender-btn female">Female</div>
+                    <div className= {"gender-btn male "+(activeGender === "m"?" active":null)} onClick={() => {setUserRegisterInfo({...userRegisterInfo,gender:"male"});setActiveGender("m")}}>Male</div>
+                    <div className= {"gender-btn female "+(activeGender === "f"?" active":null)} onClick={() => {setUserRegisterInfo({...userRegisterInfo,gender:"female"});setActiveGender("f")}} >Female</div>
                     
                 </div>
 
@@ -118,7 +163,7 @@ const Register = ({changeSelection}) => {
                     By creating an account, you agree to Nike's<span> Privacy Policy. </span> and <span> Terms of Use. </span>
                 </div>
 
-                <div className="sign-in_btn">
+                <div className="sign-in_btn" onClick={() => handleFormSubmit()}>
                     JOIN US
                 </div>
 

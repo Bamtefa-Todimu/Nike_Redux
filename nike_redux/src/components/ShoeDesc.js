@@ -64,7 +64,6 @@ const ShoeDesc = () => {
 
     useEffect(() => {
         setCurrShoe(shoeList.find((shoe) => shoe.id === 1))
-        dispatch(requestShoe())
     },[])
 
     useEffect(() => {

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import SubHeader from "./SubHeader"
 import HeaderSlider from "./HeaderSlider"
 
@@ -5,7 +6,12 @@ import '../styles/header.css'
 
 
 const Header = () => {
+
+  const navigate = useNavigate()
+
+
   return (
+
     <div className="header-container">
         <div className="header-wrapper">
             <div className="hw-left">
@@ -14,13 +20,14 @@ const Header = () => {
             </div>
             <div className="hw-right">
                 <span>Help</span>
-                <span>Join Us</span>
-                <span>Sign In</span>
+                <span onClick={() => navigate('/member/profile/login?continueUrl='+window.location.href)}>Join Us</span>
+                <span onClick={() => navigate('/member/profile/login?continueUrl='+window.location.href)}>Sign In</span>
             </div>
         </div>
         <SubHeader/>
         <HeaderSlider/>
     </div>
+
   )
 }
 

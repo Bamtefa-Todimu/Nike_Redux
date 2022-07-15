@@ -12,21 +12,41 @@ const api = ({dispatch}) => next => async action => {
 
     try
     {
-        const allShoes = await fetch(url,{
+        console.log(data)
+        var allShoes
+        if(method === "GET" || method === "get")
+        {
+             allShoes = await fetch(url,{
             method:method,
-            data:data,
+            
+        })
+        }
+
+        else
+        {
+             allShoes = await fetch(url,{
+            method:method,
+            body:JSON.stringify(data),
             headers:{
                 "Content-Type":"application/json"
             }
         })
+        }
+        
 
         const jsonShoes =await allShoes.json()
 
         dispatch(apiActions.apiCallSuccess(jsonShoes))
+
+        if(jsonShoes.errorMessage)
+        {
+            return dispatch({type:onError,payload:{errMessage:jsonShoes.errorMessage,from:onSuccess}})
+        }
         dispatch({type:onSuccess,payload:jsonShoes})
     }
     catch(E)
     {
+        console.log(E)
         dispatch({type:onError})
     }
 }
