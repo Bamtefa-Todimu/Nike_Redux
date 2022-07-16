@@ -1,15 +1,28 @@
 import { useNavigate } from 'react-router-dom'
+import { useDispatch,useSelector } from 'react-redux'
 import SubHeader from "./SubHeader"
 import HeaderSlider from "./HeaderSlider"
 
 import '../styles/header.css'
+import { useEffect, useState } from 'react'
 
 
 const Header = () => {
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  
+  const [authToken,setAuthToken] = useState("")
+  const [authFirstname,setAuthFirstname] = useState("")
 
+  const {token,firstname} = useSelector(state => state.auth)
+  
 
+  useEffect(() => {
+    setAuthToken(token)
+    setAuthFirstname(firstname)
+  },[token,firstname])
+  
   return (
 
     <div className="header-container">
@@ -20,8 +33,24 @@ const Header = () => {
             </div>
             <div className="hw-right">
                 <span>Help</span>
-                <span onClick={() => navigate('/member/profile/login?continueUrl='+window.location.href)}>Join Us</span>
-                <span onClick={() => navigate('/member/profile/login?continueUrl='+window.location.href)}>Sign In</span>
+
+                {
+                  (authToken && authFirstname)?
+                  <>
+                  <span onClick={() => {dispatch({type:"auth/userLoggedOut"})}}>Logout</span>
+                  <span onClick={() => {}}>{firstname}</span>
+                  </>:
+                  <>
+                  <span onClick={() => navigate('/member/profile/login?continueUrl='+window.location.href)}>Join Us</span>
+                  <span onClick={() => navigate('/member/profile/login?continueUrl='+window.location.href)}>Sign In</span>
+                  </>
+
+                  
+
+                  
+
+              
+              }
             </div>
         </div>
         <SubHeader/>

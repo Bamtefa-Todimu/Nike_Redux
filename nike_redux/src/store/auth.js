@@ -36,12 +36,18 @@ const slice  = createSlice({
             user.loading = false
             if(action.payload.from === "auth/userLoggedIn")user.errorMessageLog = action.payload.errMessage
             else user.errorMessageReg = action.payload.errMessage
+        },
+        userLoggedOut : (user,action) => {
+            user.token = ""
+            user.firstname = ""
+            user.errorMessageLog = null
+            user.errorMessageReg = null
         }
     }
 })
 
 
-export const {userLoginRequested,userLoggedIn,userRegistered,userLoginFailed}  = slice.actions
+export const {userLoginRequested,userLoggedIn,userRegistered,userLoginFailed,userLoggedOut}  = slice.actions
 export default slice.reducer
 
 

@@ -33,7 +33,7 @@ const Login = ({changeSelection}) => {
     const navigate = useNavigate()
     const continueUrl = new URLSearchParams(location.search).get('continueUrl')
 
-    const {errorMessageLog} = useSelector(state => state.auth)
+    const {errorMessageLog,firstname,token} = useSelector(state => state.auth)
     const [userRegisterInfo,setUserRegisterInfo] = useState({})
 
 
@@ -45,12 +45,12 @@ const Login = ({changeSelection}) => {
     }
 
     useEffect(() => {
-        if(!errorMessageLog)
+        if(!errorMessageLog && firstname && token)
         {
             console.log(errorMessageLog);
-            // window.location.href = continueUrl
+            window.location.href = continueUrl
         }
-    },[errorMessageLog])
+    },[errorMessageLog,firstname,token])
     return(
         <div className="login-container">
             <div className="login-wrapper">
@@ -122,7 +122,7 @@ const Register = ({changeSelection}) => {
                 <div className="input-container email-input_container">
                     <input  type="email" name="" id="email" className="login-input " placeholder='Email address' onChange={(e) => setUserRegisterInfo({...userRegisterInfo,email:e.target.value})} value = {userRegisterInfo.email}/>
                 </div>
-                {errorMessageReg ?  <p className="error-message-email">{errorMessageReg} <span style={{color:"#111111",textDecoration:"underline"}} onClick={() => changeSelection("login")}>Sign In</span></p>:null}
+                {errorMessageReg ?  <p className="error-message-email">{errorMessageReg} <span style={{color:"#111111",textDecoration:"underline",cursor:"pointer"}} onClick={() => changeSelection("login")}>Sign In</span></p>:null}
 
 
                 <div className="input-container password-input_container">
@@ -149,8 +149,15 @@ const Register = ({changeSelection}) => {
                     
                 </div>
                 <div className="input-container gender-input_container">
-                    <div className= {"gender-btn male "+(activeGender === "m"?" active":null)} onClick={() => {setUserRegisterInfo({...userRegisterInfo,gender:"male"});setActiveGender("m")}}>Male</div>
-                    <div className= {"gender-btn female "+(activeGender === "f"?" active":null)} onClick={() => {setUserRegisterInfo({...userRegisterInfo,gender:"female"});setActiveGender("f")}} >Female</div>
+                    <div className= {"gender-btn male "+(activeGender === "m"?" active":null)} onClick={() => {setUserRegisterInfo({...userRegisterInfo,gender:"male"});setActiveGender("m")}}> 
+                        
+                        {(activeGender === "m"?<img src="https://s3.nikecdn.com/unite/app/953/images/checkmark.svg" alt="" />:null)}
+                        Male
+                    </div>
+                    <div className= {"gender-btn female "+(activeGender === "f"?" active":null)} onClick={() => {setUserRegisterInfo({...userRegisterInfo,gender:"female"});setActiveGender("f")}} >
+                        {(activeGender === "f"?<img src="https://s3.nikecdn.com/unite/app/953/images/checkmark.svg" alt="" />:null)}
+                        Female
+                    </div>
                     
                 </div>
 

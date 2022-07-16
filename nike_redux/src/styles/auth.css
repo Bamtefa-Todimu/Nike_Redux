@@ -170,10 +170,22 @@
 .gender-btn
 {
     width: 47%;
-    display: grid;
-    place-content: center;
+    cursor: pointer;
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    justify-content: center;
 }
 
+.gender-btn:hover
+{
+
+}
+
+.active
+{
+    border: 1px solid #111111;
+}
 .keep-me-signed
 {
     margin-bottom: 1rem;
