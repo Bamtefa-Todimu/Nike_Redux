@@ -8,6 +8,7 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 import ShoeDesc from './components/ShoeDesc';
 import Auth from './components/Auth';
+import Cart from './components/Cart';
 import './App.css';
 
  
@@ -25,6 +26,7 @@ function App() {
           <Route exact path= "/" element={<Main/>}/>
           <Route exact path= "/t/:id" element={<ShoeDesc/>}/>
           <Route exact path= "/member/profile/login" element={<Auth/>}/>
+          <Route exact path= "/cart" element={<Cart/>}/>
         </Routes>
        {/* <Main/> */}
        <Footer/>

@@ -128,6 +128,8 @@
 .sbw-heart,.sbw-bag
 {
     margin-left: 1.5rem;
+    position: relative;
+    cursor: pointer;
 }
 
 .sbw-peri{
@@ -185,6 +187,122 @@
     color: #757575;
     font-size: 1.07rem;
 }
+
+.sbw-bag span
+{
+    position: absolute;
+    top: 50%;
+    left: 48%;
+    transform: translate(-50%,-50%);
+    font-size: 0.8rem;
+}
+
+.cart-noti_container
+{
+    position: fixed;
+    margin-top: 102px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 100px);
+    /* z-index: 100; */
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.cart-noti-wrapper
+{
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 2rem;
+    width: 100%;
+    max-width: 450px;
+    padding: 1.7rem 1.8rem;
+    padding-top: 1rem;
+    z-index: 12;
+}
+
+.cnw-header
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.cnw-body
+{
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.cnw-img
+{
+    width: 90px;
+    height: 90px;
+    position: relative;
+}
+
+.cnw-img img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cnw-name
+{
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.cnw-cat,.cnw-price
+{
+    margin-bottom: 0.3rem;
+    color:#757575;
+}
+
+.cnw-actions
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cnw_view-bag,.cnw_checkout
+{
+    width: 48%;
+    padding: 1.3rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3em;
+    cursor: pointer;
+}
+
+.cnw_checkout
+{
+    background-color: #111111;
+    color: #ffffff;
+}
+
+.cnw_view-bag
+{
+    padding: 1.25rem 0;
+    border: 1.5px  solid #dcd9d9;
+}
+
+.cart-noti-close
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
+
 
 @media screen and (max-width:1034px) {
     .sbw-middle{

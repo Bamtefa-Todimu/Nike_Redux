@@ -1,10 +1,11 @@
 import {useState,useEffect,useRef} from 'react'
 
 import {useSelector,useDispatch} from 'react-redux'
-import { requestShoe } from '../store/shoe'
+
+import { addShoeToCart } from '../store/cart'
 
 
-import shoeList from "../testShoes"
+// import shoeList from "../testShoes"
 import heartIcon from '../assets/images/heart-icon.svg'
 import upArrow from '../assets/images/up-arrow.svg'
 
@@ -26,7 +27,7 @@ const ShoeDesc = () => {
     const {list} = shoes
 
     const [specificShoe,setSpecificShoe] = useState([])
-    const [currShoe,setCurrShoe] = useState({})
+    // const [currShoe,setCurrShoe] = useState({})
     const [fsop,setfsop] = useState(false)
     const [fsop1,setfsop1] = useState(false)
 
@@ -62,9 +63,9 @@ const ShoeDesc = () => {
 
     }
 
-    useEffect(() => {
-        setCurrShoe(shoeList.find((shoe) => shoe.id === 1))
-    },[])
+    // useEffect(() => {
+    //     setCurrShoe(shoeList.find((shoe) => shoe.id === 1))
+    // },[])
 
     useEffect(() => {
         
@@ -153,7 +154,7 @@ const ShoeDesc = () => {
                     <p>4 interest-free payments of $40.00 with <span>Klarna.</span> <a href="/">Learn more
                         </a> </p>
 
-                        <div className="sdia add-to-bag_btn">Add to Bag</div>
+                        <div className="sdia add-to-bag_btn" onClick={() => dispatch(addShoeToCart(specificShoe))}>Add to Bag</div>
                         <div className="sdia favorite_btn">Favorite <img src={heartIcon} alt="" /></div>
                 </div>
 
